@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Data Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .card img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .card video {
+            width: 100%;
+            max-width: 640px;
+            height: auto;
+            margin-top: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .card h2 {
+            margin-bottom: 5px;
+        }
+        .card p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="content">
+        <h1>Movies</h1>
+        <p>Fetching data...</p>
+    </div>
+    <script>
+        const apiAll = "http://localhost:7239/api/all";
+        const apiDetail = "http://localhost:7296/api/detail";
+
+        async function fetchData() {
+            try {
+                const response = await fetch(apiAll);
+                const data = await response.json();
+
+                const container = document.getElementById('content');
+                container.innerHTML = ''; // Clear initial message
+
+                data.forEach(movie => {
+                    // Create card for each movie
+                    const card = document.createElement('div');
+                    card.className = 'card';
+
+                    // Movie thumbnail
+                    const thumbnail = document.createElement('img');
+                    thumbnail.src = movie.thumb;
+                    thumbnail.alt = `${movie.title} Thumbnail`;
+
+                    // Movie title and year
+                    const title = document.createElement('h2');
+                    title.textContent = movie.title;
+
+                    const year = document.createElement('p');
+                    year.textContent = `Year: ${movie.year}`;
+
+                    // Embedded video
+                    const videoPlayer = document.createElement('video');
+                    videoPlayer.controls = true;
+                    videoPlayer.src = movie.video;
+                    videoPlayer.alt = `${movie.title} Video`;
+
+                    // Append elements to card
+                    card.appendChild(thumbnail);
+                    card.appendChild(title);
+                    card.appendChild(year);
+                    card.appendChild(videoPlayer);
+
+                    // Append card to container
+                    container.appendChild(card);
+                });
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                const container = document.getElementById('content');
+                container.innerHTML = `<p>Error fetching data. Please try again later.</p>`;
+            }
+        }
+
+        // Fetch data on page load
+        fetchData();
+    </script>
+</body>
+</html>

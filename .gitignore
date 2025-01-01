@@ -1,0 +1,93 @@
+# Ignore Visual Studio for Mac
+.vscode/
+.idea/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# User-specific files for Visual Studio for Mac
+.vscode/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer directories
+bin/
+obj/
+
+# Windows image files
+Thumbs.db
+ehthumbs.db
+
+# Windows Installer files
+.vs2019/
+.vs2017/
+.vs/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]ist/
+[Dd]ebug-AnyCPU/
+[Dd]ebug-x86/
+[Dd]ebug-x64/
+[Dd]Release/
+[Dd]eploy/
+
+# User-specific files for Visual Studio 2019
+.vs2019/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows image files
+Thumbs.db
+ehthumbs.db
+
+# JetBrains Rider
+.idea/
+
+# Microsoft Visual Studio for Mac
+.vscode/
+
+# .NET Core build output
+/bin/
+/obj/
+/out/
+
+# ASP.NET Core build output
+wwwroot/
+
+# Logs
+*.log
+
+# NPM
+node_modules/
+
+# VS Code directory and files
+.vscode/
+
+# Ignore database files
+appsettings.Development.json
+appsettings.Production.json
+
+# Ignore user-specific files
+*.swp
