@@ -5,7 +5,7 @@
 O consulta-cards.html mostra como as api's funcionam por meio de uma página html
 dependendo da execução as portas podem ser alteradas e modificar o html de acordo assim como os exemplos de chamada abaixo:
 
-* Incli no storage da azure em um CosmoDB: curl --location 'http://localhost:7217/api/dataStorage' \
+* Inclui no storage da azure em um CosmoDB: curl --location 'http://localhost:7217/api/dataStorage' \
 --header 'file-type: video' \
 --form 'file=@"/C:/Users/valdir/devcode/dio/bootcamp-az-204/gerenciador-catalogos-netflix/handson-serverless-netflix/video.mp4"'
 * Inclui filme: curl --location 'http://localhost:7210/api/movie' \
